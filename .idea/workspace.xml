@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="615fd305-f77b-4a1c-947c-fa424bd51f5c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/CreateOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/CreateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/DeleteUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/LogIn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/LogOut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/GetPizza.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/IChangeOrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/ICreateOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/ICreateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/IDeleteOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/IDeleteUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/IGetOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/IGetPizza.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/ILogIn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/ILogOut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/ApplicationServices/ServicesInterfaces/IMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoriesInterfaces/IOrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoriesInterfaces/IPizzaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoriesInterfaces/IUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Abstractions/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Abstractions/PizzaSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Abstractions/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Abstractions/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/OrderLine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Pizza.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Validations/IValidateEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Validations/IValidateOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Validations/IValidatePassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Mappers/Mappers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Mappers/OrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/DbConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/PizzaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/LogInController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/PizzaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/IMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/OrderMapper.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2tBCoQUt0CRY3ObPXOWggVWdkJv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/ThinkPAD/AppData/Roaming/JetBrains/IntelliJIdea2023.2/jdbc-drivers/MySQL ConnectorJ/8.2.0/com/mysql/mysql-connector-j/8.2.0/mysql-connector-j-8.2.0.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="615fd305-f77b-4a1c-947c-fa424bd51f5c" name="Changes" comment="" />
+      <created>1739816255668</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739816255668</updated>
+      <workItem from="1739816258249" duration="91000" />
+      <workItem from="1739822528252" duration="4583000" />
+      <workItem from="1739908506907" duration="5345000" />
+      <workItem from="1739962484295" duration="416000" />
+      <workItem from="1740127318463" duration="13179000" />
+      <workItem from="1740315098230" duration="764000" />
+      <workItem from="1740587434790" duration="8321000" />
+      <workItem from="1740649237149" duration="2990000" />
+      <workItem from="1740660016379" duration="47000" />
+      <workItem from="1740742186192" duration="46278000" />
+      <workItem from="1741795984732" duration="115000" />
+      <workItem from="1741796217349" duration="32000" />
+      <workItem from="1741796355431" duration="124000" />
+      <workItem from="1741850810939" duration="24000" />
+      <workItem from="1741869508236" duration="45000" />
+      <workItem from="1742384522199" duration="77000" />
+      <workItem from="1742385882565" duration="11000" />
+      <workItem from="1742385905908" duration="186000" />
+      <workItem from="1749820106138" duration="11001000" />
+      <workItem from="1750350404779" duration="4865000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
