@@ -10,10 +10,13 @@ public class CreateOrder implements ICreateOrder {
     private final IPizzaRepository pizzaRepository;
 
 
-    public Order placeOrder(OrderRecord request){
+    public Order placeOrder(OrderRecord request) {
         // тук си създавам обекта, за да не експоузвам нагоре
-        Order order = new Order(request.address(), request.Map<Pizza, Integer> );
+        Order order = new Order(request.address(), request.Map < Pizza, Integer >);
         // Order order = new Order(request.address(), request.orderLines());
         orderRepository.saveOrderToDb(order);
         return order;
     }
+}
+
+// Here I will have the discounts logic

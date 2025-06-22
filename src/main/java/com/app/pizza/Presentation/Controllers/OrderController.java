@@ -10,9 +10,27 @@ public class OrderController implements BaseController{
         this.createOrder = createOrder;
     }
 
-    public Order createOrder(OrderRecord orderRecord){
-        Order order = createOrder.placeOrder(orderRecord);
-        return order; // рябва да върна нещо, което да бъде валидирано, че
-                      // реално поръчката е създадена успешно
+
+    // Employees functionality
+
+    public void getOrderByStatus(){}
+
+    public void modifyOrderStatus(int orderId, String status){}
+
+
+    // Customer functionality
+
+    public void createOrder(OrderRecord orderRecord){}
+
+    public void modifyOrder(){}
+
+    public void cancelOrder(){
+        // трябва да се вземат всички поръчки, да се намери поръчката на този потребител и да се изтрие, и да се върнат в базата
     }
+
+    public void getOrdersByCustomerId(int customerId) {}
+
+    public void getOrderById(int id){}
+
+    public void getOrderStatus(int orderId) {}
 }
