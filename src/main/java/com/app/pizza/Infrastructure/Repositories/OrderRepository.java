@@ -1,6 +1,6 @@
 package com.app.pizza.Infrastructure.Repositories;
 
-import com.app.pizza.Application.RepositoriesInterfaces.IOrderRepository;
+import com.app.pizza.Application.RepositoriesInterfaces.MySqlOrderRepository;
 import com.app.pizza.Domain.Models.Order;
 
 import java.sql.Connection;
@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class OrderRepository implements IOrderRepository, DbConnection {
+public class OrderRepository implements MySqlOrderRepository, DbConnection {
 
     @Override
     public void saveOrderToDb(Order order) {

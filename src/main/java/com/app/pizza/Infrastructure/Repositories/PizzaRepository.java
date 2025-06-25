@@ -1,13 +1,13 @@
 package com.app.pizza.Infrastructure.Repositories;
 
-import com.app.pizza.Application.RepositoriesInterfaces.IPizzaRepository;
-import com.app.pizza.Domain.Models.Pizza;
+import com.app.pizza.Application.RepositoriesInterfaces.MySqlPizzaRepository;
+import com.app.pizza.Domain.Models.Product;
 
 import java.sql.*;
 
-public class PizzaRepository implements IPizzaRepository, DbConnection {
+public class PizzaRepository implements MySqlPizzaRepository, DbConnection {
     @Override
-    public Pizza getPizzaByName(String pizzaName) {
+    public Product getPizzaByName(String pizzaName) {
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM pizzas WHERE name = ?")

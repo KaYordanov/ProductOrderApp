@@ -1,5 +1,5 @@
 package com.app.pizza.Domain.Abstractions;
 
-public enum PizzaSize {
+public enum ProductSize {
     SMALL, MEDIUM, LARGE
 }

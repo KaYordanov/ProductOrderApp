@@ -1,42 +1,48 @@
 package com.app.pizza.Domain.Models;
 
 import com.app.pizza.Domain.Abstractions.OrderStatus;
-import com.app.pizza.Domain.Abstractions.OrderType;
+import com.app.pizza.Domain.Abstractions.OrderDeliveryType;
 import com.app.pizza.Domain.Abstractions.PaymentMethod;
 
-import java.time.LocalDate;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.List;
 
 
 public class Order {
     private long orderID;
-    private String customerName;
-    private LocalDate orderDate;
-    private OrderType orderType;
+    private Customer customer;
+    private DeliveryEmployee deliveryEmployee;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private OrderDeliveryType orderDeliveryType;
     private String address;
-    private String city;
-    private String zipCode;
-    private OrderStatus orderStatus;
-    private long customerID;
-    private Map<Pizza, Integer> orderList;
+    private List<OrderItem> orderItems;
     private PaymentMethod paymentMethod;
+    private OrderStatus orderStatus;
     private double totalSum; // totalSum ще бъде със сетър, който ще бъде ползван след изчисляването и потенциалното намаление
     private String notes;    // like 'leave at door' or 'no mushrooms'
-    private Long deliveryEmployeeId;
     private boolean discounted;
 
+    public Order(){}
 
-    // и тук станаха много полета, с Builder pattern ще го създавам
-
-    /*
-    public Order(long customerID, String customerName, String address, Map<Pizza, Integer> orderList) {
-        this.customerID = customerID;
-        this.customerName = customerName;
+    public Order(long orderID, Customer customer, DeliveryEmployee deliveryEmployee, LocalDateTime createdAt, LocalDateTime updatedAt, OrderDeliveryType orderDeliveryType, String address, List<OrderItem> orderItems, PaymentMethod paymentMethod, OrderStatus orderStatus, double totalSum, String notes) {
+        this.orderID = orderID;
+        this.customer = customer;
+        this.deliveryEmployee = deliveryEmployee;
+        this.createdAt = (createdAt != null) ? createdAt : LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+        this.orderDeliveryType = orderDeliveryType;
         this.address = address;
-        this.orderDate = LocalDate.now();
-        this.customerID = customerID;
-        this.orderList = orderList;
-        this.orderStatus = // hardcode-вам да е първи статус и вече Employee да може да променя статуа, може би??
+        this.orderItems = orderItems;
+        this.paymentMethod = paymentMethod;
+        this.orderStatus = orderStatus;
+        this.totalSum = calculateTotalSum(orderItems);
+        this.notes = notes;
     }
-    */
+
+    private double calculateTotalSum(List<OrderItem> items){
+        return items.stream()
+                    .mapToDouble(OrderItem::getTotalAmount)
+                    .sum();
+    }
 }

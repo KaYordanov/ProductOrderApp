@@ -1,36 +1,20 @@
 package com.app.pizza.Presentation.Controllers;
 
-import com.app.pizza.Application.ApplicationServices.ServicesInterfaces.ICreateOrder;
-import com.app.pizza.Domain.Models.Order;
+import com.app.pizza.Domain.Abstractions.OrderStatus;
 
 public class OrderController implements BaseController{
-    ICreateOrder createOrder;
+    // Use cases here
 
-    public OrderController(ICreateOrder createOrder) {
-        this.createOrder = createOrder;
-    }
+    // Constructor with use cases injected here
 
-
-    // Employees functionality
-
-    public void getOrderByStatus(){}
-
-    public void modifyOrderStatus(int orderId, String status){}
-
-
-    // Customer functionality
-
-    public void createOrder(OrderRecord orderRecord){}
-
-    public void modifyOrder(){}
-
-    public void cancelOrder(){
-        // трябва да се вземат всички поръчки, да се намери поръчката на този потребител и да се изтрие, и да се върнат в базата
-    }
-
+    public void getOrderById(long id){}
+    public void getOrderByStatus(String orderStatus){} // the status String will be changed to Enum potentially
+    public void updateOrderStatus(int orderId, String orderStatus){} // the status String will be changed to Enum potentially
+    public void createOrder(){}
     public void getOrdersByCustomerId(int customerId) {}
-
-    public void getOrderById(int id){}
-
-    public void getOrderStatus(int orderId) {}
+    public void getPendingOrders(int customerID){}
+    public void modifyOrder(){}
+    public void cancelOrder(int orderId){}
+    public void acceptOrderDelivery(){}
+    public void rejectOrderDelivery(){}
 }

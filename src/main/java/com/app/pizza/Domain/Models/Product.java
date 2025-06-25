@@ -1,18 +1,18 @@
 package com.app.pizza.Domain.Models;
 
-import com.app.pizza.Domain.Abstractions.PizzaSize;
+import com.app.pizza.Domain.Abstractions.ProductSize;
 
-public class Pizza {
+public class Product {
     private int pizzaId;
     private String name;
     private double price;
     private String description;
-    private PizzaSize size;
+    private ProductSize size;
 
-    public Pizza() {}
+    public Product() {}
 
 
-    public Pizza(int pizzaId, String name, double price, String description, PizzaSize size) {
+    public Product(int pizzaId, String name, double price, String description, ProductSize size) {
         this.pizzaId = pizzaId;
         this.name = name;
         this.price = price;
@@ -52,11 +52,11 @@ public class Pizza {
         this.description = description;
     }
 
-    public PizzaSize getSize() {
+    public ProductSize getSize() {
         return size;
     }
 
-    public void setSize(PizzaSize size) {
+    public void setSize(ProductSize size) {
         this.size = size;
     }
 

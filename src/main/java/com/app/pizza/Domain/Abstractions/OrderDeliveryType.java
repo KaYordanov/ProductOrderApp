@@ -1,6 +1,6 @@
 package com.app.pizza.Domain.Abstractions;
 
-public enum OrderType {
+public enum OrderDeliveryType {
     PICKUP,
     DELIVERY
 }
