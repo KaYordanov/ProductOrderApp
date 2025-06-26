@@ -1,4 +1,4 @@
-package com.app.pizza.Application.RepositoriesInterfaces;
+package com.app.pizza.Application.RepositoryInterfaces;
 
 public interface MySqlUserRepository {
     public void loadUserById(long id);

@@ -1,7 +1,7 @@
-package com.app.pizza.Application.RepositoriesInterfaces;
+package com.app.pizza.Application.RepositoryInterfaces;
 
 import com.app.pizza.Domain.Models.Product;
 
-public interface MySqlPizzaRepository {
+public interface MySqlProductRepository {
     public Product getPizzaByName(String pizzaName);
 }

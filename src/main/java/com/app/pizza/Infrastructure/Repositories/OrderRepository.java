@@ -1,6 +1,6 @@
 package com.app.pizza.Infrastructure.Repositories;
 
-import com.app.pizza.Application.RepositoriesInterfaces.MySqlOrderRepository;
+import com.app.pizza.Application.RepositoryInterfaces.MySqlOrderRepository;
 import com.app.pizza.Domain.Models.Order;
 
 import java.sql.Connection;

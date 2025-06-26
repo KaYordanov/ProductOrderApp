@@ -1,27 +1,25 @@
 package com.app.pizza.Presentation.Controllers;
 
+import com.mysql.cj.protocol.x.XProtocolDecoder;
+
 public class ProductController implements BaseController{
+    // Use cases here
 
-    //Worker
-    public void getAllProduct(){
+    // Constructor with use cases injected here
 
-    }
+    public void getAllProduct(){}
 
-    public void addProduct(){
+    public void findProductByName(String productName){} // returns the product in all sizes
 
-    }
+    public void getAllUserProducts(long id){}
 
-    public void deleteProduct(){
+    public void addProduct(){}
 
-    }
+    public void deleteProduct(){}
 
-    public void updateProductName(){
-
-    }
+    public void updateProductName(){}
 
     public void updateProductPrice(){}
 
     public void updateProductIngredients(){}
-
-    public void findProductByName(){}
 }
