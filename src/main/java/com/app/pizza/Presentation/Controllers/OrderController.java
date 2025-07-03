@@ -1,8 +1,6 @@
 package com.app.pizza.Presentation.Controllers;
 
-import com.app.pizza.Domain.Abstractions.OrderStatus;
-
-public class OrderController implements BaseController{
+public class OrderController {
     // Use cases here
 
     // Constructor with use cases injected here

@@ -5,35 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="615fd305-f77b-4a1c-947c-fa424bd51f5c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/order/Implementations/AcceptOrderDeliveryUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/order/Implementations/CancelOrderUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/order/Implementations/CreateOrderUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/order/Implementations/GetOrderByCustomerIdUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/order/Implementations/RejectOrderDeliveryUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/order/Implementations/UpdateOrderUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/product/Implementations/FindProductByNameUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/product/Implementations/GetAllProductsUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/product/Interfaces/FindProductByName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/product/Interfaces/GetAllProducts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Implementations/CreateUserUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Implementations/DeleteUserUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Implementations/RetrieveUserUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Implementations/UpdateUserUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Interfaces/CreateUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Interfaces/DeleteUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Interfaces/RetrieveUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Interfaces/UpdateUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Mappers/ProductMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Mappers/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/OrderControllerInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UerControllerInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UserControllerInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderRetrievalRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderRetrievalResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignInRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignInResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoriesInterfaces/MySqlOrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoryInterfaces/MySqlOrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoriesInterfaces/MySqlPizzaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoryInterfaces/MySqlProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoriesInterfaces/MySqlUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoryInterfaces/MySqlUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/PizzaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzadb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pizzadb.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Abstractions/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Abstractions/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/DeliveryEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/DeliveryEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/OnSiteEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/OnSiteEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/BaseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderCreationRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderCreationResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductRetrievalRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductRetrievalResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignUpRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignUpResponseDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +110,7 @@
       <workItem from="1742385882565" duration="11000" />
       <workItem from="1742385905908" duration="186000" />
       <workItem from="1749820106138" duration="11001000" />
-      <workItem from="1750350404779" duration="78340000" />
+      <workItem from="1750350404779" duration="92305000" />
     </task>
     <servers />
   </component>

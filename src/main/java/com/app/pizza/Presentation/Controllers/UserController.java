@@ -1,6 +1,6 @@
 package com.app.pizza.Presentation.Controllers;
 
-public class UserController implements BaseController {
+public class UserController {
     // Use cases here
 
     // Constructor with use cases injected here

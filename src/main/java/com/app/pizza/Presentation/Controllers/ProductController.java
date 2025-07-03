@@ -1,8 +1,6 @@
 package com.app.pizza.Presentation.Controllers;
 
-import com.mysql.cj.protocol.x.XProtocolDecoder;
-
-public class ProductController implements BaseController{
+public class ProductController {
     // Use cases here
 
     // Constructor with use cases injected here

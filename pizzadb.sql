@@ -15,8 +15,6 @@ CREATE TABLE customer (
     id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id BIGINT NOT NULL,
     address VARCHAR(255),
-    city VARCHAR(100),
-    zip_code VARCHAR(20),
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
