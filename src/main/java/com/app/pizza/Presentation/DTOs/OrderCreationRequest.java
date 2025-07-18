@@ -1,4 +1,5 @@
 package com.app.pizza.Presentation.DTOs;
 
-public class OrderRetrievalRequestDTO {
+public class OrderCreationRequest {
+
 }

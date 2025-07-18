@@ -8,6 +8,7 @@ CREATE TABLE user (
     password VARCHAR(255) NOT NULL,
     age INT,
     phone_number VARCHAR(20),
+    user_type ENUM('CUSTOMER', 'ON_SITE', 'DELIVERY'),
     registration_date DATE NOT NULL
 );
 

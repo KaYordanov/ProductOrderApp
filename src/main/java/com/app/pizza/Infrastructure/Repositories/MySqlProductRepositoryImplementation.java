@@ -2,10 +2,11 @@ package com.app.pizza.Infrastructure.Repositories;
 
 import com.app.pizza.Application.RepositoryInterfaces.MySqlProductRepository;
 import com.app.pizza.Domain.Models.Product;
+import com.app.pizza.Infrastructure.DataSource.DbConnection;
 
 import java.sql.*;
 
-public class ProductRepository implements MySqlProductRepository, DbConnection {
+public class MySqlProductRepositoryImplementation implements MySqlProductRepository, DbConnection {
     @Override
     public Product getPizzaByName(String pizzaName) {
 

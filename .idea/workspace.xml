@@ -5,32 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="615fd305-f77b-4a1c-947c-fa424bd51f5c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/OrderControllerInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UerControllerInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UserControllerInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderRetrievalRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderRetrievalResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignInRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignInResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Implementations/RegisterUserUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/DataSource/MySqlUserDataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/DataSource/UserDataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Mappers/OrderDataMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Mappers/ProductDataMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Mappers/UserDataMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/PersistanceModels/CustomerModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/PersistanceModels/DeliveryEmployeeModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/PersistanceModels/OnSiteEmployeeModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/PersistanceModels/OrderModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/PersistanceModels/ProductModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/PersistanceModels/UserModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/OrderControllerImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/ProductControllerImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UserControllerImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignUpRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserUpdateResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/OrderMapperImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/ProductMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/ProductMapperImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/UserMapperImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pizzadb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pizzadb.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Abstractions/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Abstractions/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/DeliveryEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/DeliveryEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/OnSiteEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Domain/Models/OnSiteEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoryInterfaces/MySqlUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/RepositoryInterfaces/MySqlUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Implementations/CreateUserUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Implementations/RetrieveUserUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Implementations/RetrieveUserUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Interfaces/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Interfaces/RegisterUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Interfaces/RetrieveUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Application/UseCases/user/Interfaces/RetrieveUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Mappers/Mappers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Mappers/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/DataSource/DbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/MySqlOrderRepositoryImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/MySqlProductRepositoryImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/Repositories/MySqlUserRepositoryImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/BaseController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/OrderControllerInterface.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UerControllerInterface.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderCreationRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderCreationResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductRetrievalRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductRetrievalResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignUpRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignUpResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Controllers/UserControllerInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderCreationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderCreationResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderCreationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderRetrievalRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderRetrievalRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderRetrievalResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/OrderRetrievalResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductRetrievalRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductRetrievalRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductRetrievalResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/ProductRetrievalResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignInRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignInRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignInResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignInResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignUpRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignUpResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/DTOs/UserSignUpResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/IMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/pizza/Presentation/Mappers/UserMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +78,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/app/pizza/Infrastructure/DataSource/UserDataSource.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -58,31 +89,31 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/ThinkPAD/AppData/Roaming/JetBrains/IntelliJIdea2023.2/jdbc-drivers/MySQL ConnectorJ/8.2.0/com/mysql/mysql-connector-j/8.2.0/mysql-connector-j-8.2.0.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ThinkPAD/AppData/Roaming/JetBrains/IntelliJIdea2023.2/jdbc-drivers/MySQL ConnectorJ/8.2.0/com/mysql/mysql-connector-j/8.2.0/mysql-connector-j-8.2.0.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -110,7 +141,11 @@
       <workItem from="1742385882565" duration="11000" />
       <workItem from="1742385905908" duration="186000" />
       <workItem from="1749820106138" duration="11001000" />
-      <workItem from="1750350404779" duration="92305000" />
+      <workItem from="1750350404779" duration="112122000" />
+      <workItem from="1751904815347" duration="863000" />
+      <workItem from="1751912214851" duration="1545000" />
+      <workItem from="1752131821634" duration="75313000" />
+      <workItem from="1752662948817" duration="10546000" />
     </task>
     <servers />
   </component>

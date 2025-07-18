@@ -1,4 +1,4 @@
 package com.app.pizza.Presentation.Mappers;
 
-public interface OrderMapper {
+public class ProductMapperImplementation {
 }

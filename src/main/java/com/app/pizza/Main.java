@@ -1,13 +1,98 @@
 package com.app.pizza;
 
+import com.app.pizza.Application.RepositoryInterfaces.MySqlOrderRepository;
+import com.app.pizza.Application.RepositoryInterfaces.MySqlProductRepository;
+import com.app.pizza.Application.RepositoryInterfaces.MySqlUserRepository;
+import com.app.pizza.Application.UseCases.user.Implementations.RegisterUserUseCase;
+import com.app.pizza.Application.UseCases.user.Implementations.DeleteUserUseCase;
+import com.app.pizza.Application.UseCases.user.Implementations.RetrieveUserUseCase;
+import com.app.pizza.Application.UseCases.user.Implementations.UpdateUserUseCase;
+import com.app.pizza.Application.UseCases.user.Interfaces.RegisterUser;
+import com.app.pizza.Application.UseCases.user.Interfaces.DeleteUser;
+import com.app.pizza.Application.UseCases.user.Interfaces.RetrieveUser;
+import com.app.pizza.Application.UseCases.user.Interfaces.UpdateUser;
+import com.app.pizza.Infrastructure.Repositories.MySqlOrderRepositoryImplementation;
+import com.app.pizza.Infrastructure.Repositories.MySqlProductRepositoryImplementation;
+import com.app.pizza.Infrastructure.Repositories.MySqlUserRepositoryImplementation;
+import com.app.pizza.Presentation.Controllers.*;
+import com.app.pizza.Presentation.DTOs.UserSignUpRequest;
+import com.app.pizza.Presentation.DTOs.UserSignUpResponse;
+import com.app.pizza.Presentation.Mappers.UserMapper;
+import com.app.pizza.Presentation.Mappers.UserMapperImplementation;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args){
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        UserMapper userMapper = new UserMapperImplementation();
+
+        MySqlUserRepository mySqlUserRepository = new MySqlUserRepositoryImplementation();
+        MySqlOrderRepository mySqlOrderRepository = new MySqlOrderRepositoryImplementation();
+        MySqlProductRepository mySqlProductRepository = new MySqlProductRepositoryImplementation();
+
+        RegisterUser registerUser = new RegisterUserUseCase(mySqlUserRepository);
+        RetrieveUser retrieveUser = new RetrieveUserUseCase();
+        UpdateUser updateUser = new UpdateUserUseCase();
+        DeleteUser deleteUser = new DeleteUserUseCase();
+
+        UserController customerController = new UserControllerImplementation(registerUser, retrieveUser, updateUser, deleteUser, userMapper);
+        // OrderController orderController = new OrderControllerImplementation();
+        // ProductController productController = new ProductControllerImplementation();
 
 
+
+
+        // customer register process
+
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
+            System.out.println("=== Customer Registration ===");
+
+            System.out.print("Enter full name: ");
+            String fullName = reader.readLine();        // finish separation -> ' '
+
+            System.out.print("Enter email: ");
+            String email = reader.readLine();
+
+            System.out.print("Enter password: ");
+            String password = reader.readLine();
+
+            System.out.print("Enter age: ");
+            int age = Integer.parseInt(reader.readLine());
+
+            System.out.print("Enter phone number: ");
+            String phoneNumber = reader.readLine();
+
+            System.out.print("Enter address: ");
+            String address = reader.readLine();         // finish separation -> ' '
+
+
+            String jsonRegistrationRequest = String.format(
+                "{" + "\"fullName\": \"%s\", " +
+                    "\"email\": \"%s\", " +
+                    "\"password\": \"%s\", " +
+                    "\"age\": %d, " +
+                    "\"phoneNumber\": \"%s\", " +
+                    "\"address\": \"%s\"" +
+                "}", fullName, email, password, age, phoneNumber, address
+            );
+
+            UserSignUpRequest userSignUpRequest = objectMapper.readValue(jsonRegistrationRequest, UserSignUpRequest.class);
+            UserSignUpResponse userSignUpResponse = customerController.signUp(userSignUpRequest);
+            String jsonUserRegistrationResponse = objectMapper.writeValueAsString(userSignUpResponse);
+
+            // check how and what to return to Main for the different situation (like HTTPS status, JSON body, error (exception))
+
+
+
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
 

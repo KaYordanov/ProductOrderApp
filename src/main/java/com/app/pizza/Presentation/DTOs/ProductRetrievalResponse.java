@@ -1,4 +1,4 @@
 package com.app.pizza.Presentation.DTOs;
 
-public class ProductRetrievalRequestDTO {
+public class ProductRetrievalResponse {
 }

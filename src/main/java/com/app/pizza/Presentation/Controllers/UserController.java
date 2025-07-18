@@ -1,12 +1,13 @@
 package com.app.pizza.Presentation.Controllers;
 
-public class UserController {
-    // Use cases here
+import com.app.pizza.Presentation.DTOs.UserSignInRequest;
+import com.app.pizza.Presentation.DTOs.UserSignInResponse;
+import com.app.pizza.Presentation.DTOs.UserSignUpRequest;
+import com.app.pizza.Presentation.DTOs.UserSignUpResponse;
 
-    // Constructor with use cases injected here
-
-    public void logIn(String email, String password) {}
-    public void register(){}
-    public void updateUserProfile() { }
-    public void deleteUser(int userId) { }
+public interface UserController {
+    UserSignUpResponse signUp(UserSignUpRequest signUpRequestDTO);
+    UserSignInResponse signIn(UserSignInRequest signInRequestDTO);
+    void updateAccount();
+    void deleteAccount();
 }
