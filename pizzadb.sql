@@ -19,30 +19,25 @@ CREATE TABLE customer (
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
-
-CREATE TABLE employee (
-	id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    salary DECIMAL(10, 2),
-    hire_date DATE,
-    user_id BIGINT PRIMARY KEY,
-    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
-);
-
 CREATE TABLE delivery_employee (
     id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    employee_id BIGINT  NOT NULL,
+    salary DECIMAL(10, 2),
+    hire_date DATE,
+    user_id BIGINT,
     vehicle_type VARCHAR(50),
     vehicle_brand VARCHAR(50),
     license_plate VARCHAR(20),
-    is_company_vehicle BOOLEAN,
-    FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE
+    company_vehicle BOOLEAN,
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE onsite_employee (
     id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    employee_id BIGINT  NOT NULL,
+    salary DECIMAL(10, 2),
+    hire_date DATE,
+    user_id BIGINT,
     position ENUM('KITCHEN', 'COUNTER_STAFF', 'MANAGER'),
-    FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE `order` (
@@ -75,7 +70,6 @@ CREATE TABLE order_item (
     order_id BIGINT NOT NULL,
     item_id BIGINT NOT NULL,
     quantity INT NOT NULL CHECK (quantity > 0),
-    PRIMARY KEY (order_id, item_id),
     FOREIGN KEY (order_id) REFERENCES `order`(id) ON DELETE CASCADE,
     FOREIGN KEY (item_id) REFERENCES item(id) ON DELETE CASCADE
 );

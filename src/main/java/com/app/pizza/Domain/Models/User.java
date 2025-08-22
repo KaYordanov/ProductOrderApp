@@ -1,18 +1,41 @@
-package com.app.pizza.Infrastructure.PersistanceModels;
+package com.app.pizza.Domain.Models;
+
+import com.app.pizza.Domain.Enums.UserType;
 
 import java.time.LocalDate;
 
-public class CustomerModel {
-    private long id;
+public abstract class User {
+    private Long id;
     private String fullName;
     private String email;
     private String password;
-    private int age;
+    private Integer age;
     private String phoneNumber;
+    private UserType userType;
     private LocalDate registrationDate;
-    private String address;
 
-    public long getId() {
+    public User(String fullName, String email, String password, Integer age, String phoneNumber, UserType userType) {
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.registrationDate = LocalDate.now();
+        this.userType = userType;
+    }
+
+    public User(Long id, String fullName, String email, String password, Integer age, String phoneNumber, LocalDate registrationDate, UserType userType) {
+        this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.registrationDate = registrationDate;
+        this.userType = userType;
+    }
+
+    public Long getId() {
         return id;
     }
 
@@ -44,7 +67,7 @@ public class CustomerModel {
         this.password = password;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -68,11 +91,11 @@ public class CustomerModel {
         this.registrationDate = registrationDate;
     }
 
-    public String getAddress() {
-        return address;
+    public UserType getUserType() {
+        return userType;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 }

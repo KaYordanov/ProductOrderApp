@@ -1,6 +1,6 @@
 package com.app.pizza.Domain.Models;
 
-import com.app.pizza.Domain.Abstractions.Position;
+import com.app.pizza.Domain.Enums.Position;
 
 import java.time.LocalDate;
 

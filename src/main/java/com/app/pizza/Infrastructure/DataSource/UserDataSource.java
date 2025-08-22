@@ -1,5 +1,9 @@
 package com.app.pizza.Infrastructure.DataSource;
 
+import com.app.pizza.Domain.CustomExceptions.UserNotFoundException;
+import com.app.pizza.Infrastructure.CustomExceptions.DatabaseAccessException;
+import com.app.pizza.Infrastructure.PersistanceModels.UserPersistenceModel;
+
 import java.sql.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -9,116 +13,128 @@ public class UserDataSource implements MySqlUserDataSource, DbConnection{
     // log in
 
     @Override
-    public Long validateUser(String email, String pass) {
-        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+    public Long validateEmailAndPassword(String email, String pass){
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement ps = conn.prepareStatement("SELECT id FROM user WHERE email = ? AND password = ?")){
 
-            // check if email exists
-            String emailQuery = "SELECT id, password FROM user WHERE email = ?";
-            try (PreparedStatement ps = conn.prepareStatement(emailQuery)) {
-                ps.setString(1, email);
+            ps.setString(1, email);
+            ps.setString(2, pass);
 
-                try (ResultSet rs = ps.executeQuery()) {
-                    if (!rs.next()) {
-                        throw EmailNotFoundExceptoin;
-                    }
-
-                    String storedPassword = rs.getString("password");
-
-                    // validate password
-                    if (storedPassword.equals(pass)) {
-                        return rs.getLong("id");
-                    } else {
-                        throw WrongPasswordException;
-                    }
-                }
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // handle exception as needed
-            // learn about exceptions, custom exceptions, where to handle and throw, and if in catch I should have anything here
-            return null;
-        }
-    }
-
-    @Override
-    public Map<String, Object> findById(long id) {
-        Map<String, Object> userMap = new LinkedHashMap<>();
-    }
-
-
-
-
-
-
-
-
-
-
-    @Override
-    public Map<String, Map<String, Object>> getUserData(String email, String pass) {
-        Map<String, Map<String, Object>> finalMap = new LinkedHashMap<>();
-        String userType;
-        Map<String, Object> userMap = new LinkedHashMap<>();
-
-        if(!checkEmail(email) || checkPassword(pass)){
-            throw // some kind of no arguments or values found exception in the two methods so that I can differentiate what is wrong of the two
-        }
-
-        try (final var connection = DriverManager.getConnection(url, user, password);
-             PreparedStatement userCheckStatement = connection.prepareStatement("SELECT * FROM user WHERE email = ? AND password = ?");
-             PreparedStatement employeeCheckStatement = connection.prepareStatement("SELECT * FROM employee WHERE user_id = ?")
-
-        ){
-            userCheckStatement.setString(1, email);
-            userCheckStatement.setString(2, pass);
-
-            ResultSet userRS = userCheckStatement.executeQuery();
-            userMap.putAll(toMap(userRS));
-            Long id = userRS.getLong("id");
-            userType = userRS.getString("user_type");
-
-            if (userType.equals("Customer")){
-                userMap.putAll(tableSearch(connection, "customer", "user_id", id));
-            } else {
-                employeeCheckStatement.setLong(1, id);
-                ResultSet employeeRS = employeeCheckStatement.executeQuery();
-                userMap.putAll(toMap(employeeRS));
-                Long employeeId = userRS.getLong("employee_id");
-
-                if (userType.equals("DELIVERY")) {
-                    userMap.putAll(tableSearch(connection, "delivery_employee", "employee_id", employeeId));
-                } else if (userType.equals("ON_SITE")) {
-                    userMap.putAll(tableSearch(connection, "delivery_employee", "employee_id", employeeId));
+            try(ResultSet rs = ps.executeQuery()){
+                if (rs.next()) {
+                    return rs.getLong("user_id");
                 } else {
-                    // some exception
+                    throw new UserNotFoundException("User does not exist");
                 }
             }
 
-            finalMap.put(userType, userMap);
-            return finalMap;
-
-        } catch (SQLException e) {
+        } catch (SQLException e){
+            throw new DatabaseAccessException("Failed to access user data");
             e.printStackTrace();
         }
     }
 
-    private Map<String, Object> tableSearch(Connection connection, String table, String column, Long id) throws SQLException{
-        Map<String, Object> data;
-        String query = "SELECT * FROM " + table + " WHERE " + column + " = ?";
+    @Override
+    public <P extends UserPersistenceModel> void persist(P model){
 
-        try (PreparedStatement stmt = connection.prepareStatement(query)){
+        switch (model.getUserType()){
+            case "CUSTOMER" -> ;
+            case "DELIVERY" -> ;
+            case "ON_SITE" -> ;
+            default -> throw new IllegalArgumentException("Unsupported user type");
+
+        }
+        // create the queries
+    }
+
+    @Override
+    public Map<String, Object> findById(Long id) {
+        Map<String, Object> userDataMap = new LinkedHashMap<>();
+        // изнеси в метод намирането на конкретните юзъри
+    }
+
+
+
+    @Override
+    public Map<String, Object> findByEmailAndPassword(String email, String pass) {
+        // this method will go to findById() method (all user searches will be based on id)
+
+        Map<String, Object> finalMap = new LinkedHashMap<>();
+
+
+        try (final Connection connection = DriverManager.getConnection(url, user, password);
+             PreparedStatement userCheckStatement = connection.prepareStatement("SELECT id AS user_id, full_name, email, password, age, phone_number, user_type, registration_date  FROM user WHERE email = ? AND password = ?");
+        ){
+
+            try(ResultSet rs = userCheckStatement.executeQuery()){
+                if(!rs.next()){
+                    throw new UserNotFoundException("User does not exist");
+
+                } else {
+                    finalMap.putAll(toMap(rs));
+                    Long id = rs.getLong("user_id");
+
+                    switch (rs.getString("user_type")){
+                        case "CUSTOMER" -> finalMap.putAll(customerTableSearch(connection, id));
+                        case "DELIVERY" -> finalMap.putAll(deliveryEmployeeTableSearch(connection, id));
+                        case "ON_SITE" -> finalMap.putAll(onSiteEmployeeTableSearch(connection, id));
+                        default -> throw new IllegalArgumentException("Unsupported user type");
+
+                    }
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return finalMap; // tyk li triabva da e return-a
+    }
+
+    private Map<String, Object> customerTableSearch(Connection connection, Long id) throws SQLException{
+        Map<String, Object> data;
+
+        try (PreparedStatement stmt = connection.prepareStatement("SELECT address FROM customer WHERE user_id = ?")){
             stmt.setLong(1, id);
 
-            ResultSet rs = stmt.executeQuery();
+            try(ResultSet rs = stmt.executeQuery()){
+                data = toMap(rs);
+            }
 
-            data = toMap(rs);
         }
 
         return data;
     }
 
-    private Map<String, Object> toMap(ResultSet rs) throws SQLException{
+    private Map<String, Object> deliveryEmployeeTableSearch(Connection connection, Long id) throws SQLException{
+        Map<String, Object> data;
+
+        try (PreparedStatement stmt = connection.prepareStatement("SELECT salary, hire_date, vehicle_type, vehicle_brand, license_plate, is_company_vehicle  FROM customer WHERE user_id = ?")) {
+            stmt.setLong(1, id);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                data = toMap(rs);
+            }
+        }
+
+        return data;
+    }
+
+    private Map<String, Object> onSiteEmployeeTableSearch(Connection connection, Long id) throws SQLException{
+        Map<String, Object> data;
+
+        try (PreparedStatement stmt = connection.prepareStatement("SELECT salary, hire_date, position FROM customer WHERE user_id = ?")){
+            stmt.setLong(1, id);
+
+            try(ResultSet rs = stmt.executeQuery()){
+                data = toMap(rs);
+            }
+        }
+
+        return data;
+    }
+
+    private Map<String, Object> toMap (ResultSet rs) throws SQLException{
         Map<String, Object> map = new LinkedHashMap<>();
 
         if(rs.next()){
@@ -132,6 +148,8 @@ public class UserDataSource implements MySqlUserDataSource, DbConnection{
             }
 
             return map;
+        } else {
+            throw // some exception and check whether to catch or throw the exception
         }
     }
 }

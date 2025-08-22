@@ -1,4 +1,4 @@
 package com.app.pizza.Infrastructure.PersistanceModels;
 
-public class OrderModel {
+public class ProductPersistenceModel {
 }

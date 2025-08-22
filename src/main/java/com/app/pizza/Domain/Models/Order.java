@@ -1,8 +1,8 @@
 package com.app.pizza.Domain.Models;
 
-import com.app.pizza.Domain.Abstractions.OrderStatus;
-import com.app.pizza.Domain.Abstractions.OrderDeliveryType;
-import com.app.pizza.Domain.Abstractions.PaymentMethod;
+import com.app.pizza.Domain.Enums.OrderStatus;
+import com.app.pizza.Domain.Enums.OrderDeliveryType;
+import com.app.pizza.Domain.Enums.PaymentMethod;
 
 import java.time.LocalDateTime;
 import java.util.List;

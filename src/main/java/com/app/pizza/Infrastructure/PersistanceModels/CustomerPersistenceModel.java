@@ -1,40 +1,47 @@
 package com.app.pizza.Infrastructure.PersistanceModels;
 
+import com.app.pizza.Domain.Enums.UserType;
+
 import java.time.LocalDate;
 
-public abstract class UserModel {
-    private long id;
+public class CustomerPersistenceModel extends UserPersistenceModel{
+    private Long id;
     private String fullName;
     private String email;
     private String password;
-    private int age;
+    private Integer age;
     private String phoneNumber;
+    private UserType user_type;
     private LocalDate registrationDate;
-
-    public UserModel(long id, String fullName, String email, String password, int age, String phoneNumber, LocalDate registrationDate) {
+    private String address;
+    public CustomerPersistenceModel(Long id, String fullName, String email, String password, Integer age, String phoneNumber, String user_type, LocalDate registrationDate, String address) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.age = age;
         this.phoneNumber = phoneNumber;
+        this.user_type = UserType.valueOf(user_type);
         this.registrationDate = registrationDate;
+        this.address = address;
     }
 
-    public UserModel(String fullName, String email, String password, int age, String phoneNumber, LocalDate registrationDate) {
+    public CustomerPersistenceModel(String fullName, String email, String password, Integer age, String phoneNumber, String user_type, LocalDate registrationDate, String address) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.age = age;
         this.phoneNumber = phoneNumber;
+        this.user_type = UserType.valueOf(user_type);
         this.registrationDate = registrationDate;
+        this.address = address;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -62,11 +69,11 @@ public abstract class UserModel {
         this.password = password;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -85,4 +92,21 @@ public abstract class UserModel {
     public void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public UserType getUser_type() {
+        return user_type;
+    }
+
+    public void setUser_type(UserType user_type) {
+        this.user_type = user_type;
+    }
+
 }

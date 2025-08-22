@@ -11,25 +11,26 @@ import com.app.pizza.Application.UseCases.user.Interfaces.RegisterUser;
 import com.app.pizza.Application.UseCases.user.Interfaces.DeleteUser;
 import com.app.pizza.Application.UseCases.user.Interfaces.RetrieveUser;
 import com.app.pizza.Application.UseCases.user.Interfaces.UpdateUser;
+import com.app.pizza.Domain.CustomExceptions.ApplicationException;
+import com.app.pizza.Domain.CustomExceptions.WrongEmailOrPasswordException;
 import com.app.pizza.Infrastructure.Repositories.MySqlOrderRepositoryImplementation;
 import com.app.pizza.Infrastructure.Repositories.MySqlProductRepositoryImplementation;
 import com.app.pizza.Infrastructure.Repositories.MySqlUserRepositoryImplementation;
 import com.app.pizza.Presentation.Controllers.*;
+import com.app.pizza.Presentation.DTOs.CustomerSignUpRequest;
 import com.app.pizza.Presentation.DTOs.UserSignUpRequest;
 import com.app.pizza.Presentation.DTOs.UserSignUpResponse;
-import com.app.pizza.Presentation.Mappers.UserMapper;
-import com.app.pizza.Presentation.Mappers.UserMapperImplementation;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args){
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        UserMapper userMapper = new UserMapperImplementation();
 
         MySqlUserRepository mySqlUserRepository = new MySqlUserRepositoryImplementation();
         MySqlOrderRepository mySqlOrderRepository = new MySqlOrderRepositoryImplementation();
@@ -40,7 +41,7 @@ public class Main {
         UpdateUser updateUser = new UpdateUserUseCase();
         DeleteUser deleteUser = new DeleteUserUseCase();
 
-        UserController customerController = new UserControllerImplementation(registerUser, retrieveUser, updateUser, deleteUser, userMapper);
+        UserController userController = new UserControllerImplementation(registerUser, retrieveUser, updateUser, deleteUser);
         // OrderController orderController = new OrderControllerImplementation();
         // ProductController productController = new ProductControllerImplementation();
 
@@ -49,50 +50,69 @@ public class Main {
 
         // customer register process
 
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, Object> data = new HashMap<>();
+
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("=== Customer Registration ===");
 
             System.out.print("Enter full name: ");
-            String fullName = reader.readLine();        // finish separation -> ' '
+            data.put("fullName", reader.readLine());        // finish separation -> ' '
 
             System.out.print("Enter email: ");
-            String email = reader.readLine();
+            data.put("email", reader.readLine());
 
             System.out.print("Enter password: ");
-            String password = reader.readLine();
+            data.put("password", reader.readLine());
 
             System.out.print("Enter age: ");
-            int age = Integer.parseInt(reader.readLine());
+            data.put("age", Integer.parseInt(reader.readLine()));
 
             System.out.print("Enter phone number: ");
-            String phoneNumber = reader.readLine();
+            data.put("phoneNumber", reader.readLine());
 
             System.out.print("Enter address: ");
-            String address = reader.readLine();         // finish separation -> ' '
+            data.put("address", reader.readLine());         // finish separation -> ' '
 
 
-            String jsonRegistrationRequest = String.format(
-                "{" + "\"fullName\": \"%s\", " +
-                    "\"email\": \"%s\", " +
-                    "\"password\": \"%s\", " +
-                    "\"age\": %d, " +
-                    "\"phoneNumber\": \"%s\", " +
-                    "\"address\": \"%s\"" +
-                "}", fullName, email, password, age, phoneNumber, address
-            );
+            String jsonRegistrationRequest = objectMapper.writeValueAsString(data);
 
-            UserSignUpRequest userSignUpRequest = objectMapper.readValue(jsonRegistrationRequest, UserSignUpRequest.class);
-            UserSignUpResponse userSignUpResponse = customerController.signUp(userSignUpRequest);
+            UserSignUpRequest customerSignUpRequest = objectMapper.readValue(jsonRegistrationRequest, UserSignUpRequest.class);
+            UserSignUpResponse userSignUpResponse = userController.signUp(customerSignUpRequest);
             String jsonUserRegistrationResponse = objectMapper.writeValueAsString(userSignUpResponse);
+
 
             // check how and what to return to Main for the different situation (like HTTPS status, JSON body, error (exception))
 
-
-
-
-        }catch (IOException e){
+        } catch (JsonProcessingException m){
+            System.out.println("Error when processing json");
+            m.printStackTrace();
+        } catch (IOException e){
+            e.printStackTrace();
+        } catch (RuntimeException e){
             e.printStackTrace();
         }
+
+
+
+
+
+
+
+        // customer log in
+
+        try(){
+
+
+
+
+
+        } catch (WrongEmailOrPasswordException e){
+            System.out.println("Login failed: " + e.getMessage());
+        } catch (ApplicationException e){
+            System.out.println("Something went wrong on our side. Try again later.");
+        }
+
     }
 }
 

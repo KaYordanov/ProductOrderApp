@@ -1,116 +1,68 @@
 package com.app.pizza.Infrastructure.Repositories;
 
 import com.app.pizza.Application.RepositoryInterfaces.MySqlUserRepository;
-import com.app.pizza.Domain.Abstractions.User;
-import com.app.pizza.Infrastructure.PersistanceModels.CustomerModel;
-import com.app.pizza.Infrastructure.PersistanceModels.DeliveryEmployeeModel;
-import com.app.pizza.Infrastructure.PersistanceModels.OnSiteEmployeeModel;
-import com.app.pizza.Infrastructure.PersistanceModels.UserModel;
+import com.app.pizza.Domain.Models.User;
+import com.app.pizza.Domain.Enums.UserType;
+import com.app.pizza.Infrastructure.Mappers.UserPersistenceMapper;
+import com.app.pizza.Infrastructure.Mappers.UserPersistenceMapperProvider;
+import com.app.pizza.Infrastructure.PersistanceModels.UserPersistenceModel;
 import com.app.pizza.Infrastructure.DataSource.MySqlUserDataSource;
-import com.app.pizza.Infrastructure.Mappers.UserDataMapper;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 public class MySqlUserRepositoryImplementation implements MySqlUserRepository {
     MySqlUserDataSource userDataSource;
-    UserDataMapper userMapper;
+    //UserPersistenceMapper userMapper;
 
     // constructor
 
     @Override
-    public User createNewUser(User user) {
-        userDataSource.persist(userMapper.toDto(user));
+    public <E extends User, P extends UserPersistenceModel> void createNewUser(E user) {
+        UserType userType = user.getUserType();
+
+        UserPersistenceMapper<E, P> mapper = UserPersistenceMapperProvider.getMapper(userType);
+        userDataSource.persist(mapper.toPersistenceModel(user));
+
+        // trqbwa da vidq kak i kakwo 6e verushtam -> boolean?
+    }
+
+    @Override
+    public void deleteUser(Long id) {
 
     }
 
     @Override
-    public void deleteUser(long id) {
+    public void updateUser(Long id) {
 
     }
 
     @Override
-    public void updateUser(long id) {
-
+    public <E extends User> E getUserById(Long id){
+        return userDataSource.findById(id);
     }
 
     @Override
-    public User getUser(String email, String password){
-        Long userId = userDataSource.validateUser(email, password);
-
-        if(userId.equals(null)){
-            throw // something;
-        }
-
-        Map<String, Object> userDetails = userDataSource.findById(userId);
-        String userType = (String) userDetails.get("user_type");
-
-        switch (userType) {
-            case "CUSTOMER" -> {
-                userDetails.putAll(userDataSource.loadCustomer(userId)); // make the methods and queries
-                CustomerModel userDTO = buildCustomerModel(userDetails);
-
-                return userMapper.toEntity(userDTO); // make UserDTO an interface and make the others implement it
-            }
-            case "DELIVERY" -> {
-                userDetails.putAll(userDataSource.loadDeliveryEmployee(userId));
-                DeliveryEmployeeModel userDTO = buildDeliveryEmployeeModel(userDetails);
-
-                return userMapper.toEntity(userDTO);
-            }
-            case "ON_SITE" -> {
-                userDetails.putAll(userDataSource.loadOnsiteEmployee(userId));
-                OnSiteEmployeeModel userDTO = buildOnSiteEmployeeModel(userDetails);
-
-                return userMapper.toEntity(userDTO);
-            }
-        }
+    public Long validateLogInCredentitals(String email, String password){
+        return userDataSource.validateEmailAndPassword(email, password); // how exactly does exception bubbling work, because it wants me tho throw in method signature
     }
 
-    private OnSiteEmployeeModel buildOnSiteEmployeeModel(Map<String, Object> userDetails) {
-        return new OnSiteEmployeeModel();  // finish the DTOs
+    @Override
+    public <E extends User, P extends UserPersistenceModel> E getUser(String email, String password){
+        Map<String, Object> userDetails = userDataSource.findByEmailAndPassword(email, password);
+        UserType userType = (UserType) userDetails.get("user_type");
+
+        UserPersistenceMapper<E, P> mapper = UserPersistenceMapperProvider.getMapper(userType);
+        P userModel = mapper.toPersistenceModel(userDetails);
+
+        return mapper.toEntity(userModel);
+
+        // прявя го пак с конкретни мапери, когато връщам мапера му подавам user_type.
+        // конкретните мапери може от Map<> към PersistanceModel и от Entity към PersistanceModel,
+        // и PersistanceModel към Entity.
     }
 
-    private DeliveryEmployeeModel buildDeliveryEmployeeModel(Map<String, Object> userDetails) {
-        return new DeliveryEmployeeModel();
-    }
+    public boolean checkEmail(String email){
 
-    private CustomerModel buildCustomerModel(Map<String, Object> userDetails) {
-        return new CustomerModel();
-    }
-
-
-
-
-
-
-
-
-
-    private UserModel buildDTO(String userType, Map<String, Object> map) {
-        switch (userType) {
-            case "CUSTOMER" -> {
-                return new CustomerModel(
-                        (Long) map.get("id"),
-                        (String) map.get("full_name"),
-                        (String) map.get("email"),
-                        (String) map.get("password"),
-                        (Integer) map.get("age"),
-                        (String) map.get("phone_number"),
-                        (DateTime) map.get("registration_date"),
-                        (String) map.get("address")
-                );
-            }
-            case "DELIVERY" -> {
-                return new DeliveryEmployeeModel(
-                ... // populate from map
-                );
-            }
-            case "ON_SITE" -> {
-                return new OnSiteEmployeeModel(
-                ... // populate from map
-                );
-            }
-            default -> throw new IllegalArgumentException("Unknown user type: " + userType);
-        }
     }
 }

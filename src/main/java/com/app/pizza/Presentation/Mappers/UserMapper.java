@@ -1,17 +1,13 @@
 package com.app.pizza.Presentation.Mappers;
 
-import com.app.pizza.Domain.Abstractions.User;
-import com.app.pizza.Presentation.DTOs.UserSignInRequest;
+import com.app.pizza.Domain.Models.User;
 import com.app.pizza.Presentation.DTOs.UserSignInResponse;
 import com.app.pizza.Presentation.DTOs.UserSignUpRequest;
 import com.app.pizza.Presentation.DTOs.UserSignUpResponse;
 
-public interface UserMapper {
-    public User toEntity(UserSignUpRequest signUpDto);
-
-    public User toEntity(UserSignInRequest signIpDto);
-
-    public UserSignUpResponse toSignUpResponseDTO(User user);
-
-    public UserSignInResponse toSignInResponseDTO(User user);
+public interface UserMapper<E extends User, Req extends UserSignUpRequest, Res extends UserSignInResponse> {
+    E toEntity(Req request);
+    UserSignUpResponse toSignUpResponseDTO(E entity);// май няма да връща entity, о скоро boolean, някаква индикация за успех трябва
+    Res toSignInResponseDTO(E entity);
 }
+

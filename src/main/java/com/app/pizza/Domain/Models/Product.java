@@ -1,6 +1,6 @@
 package com.app.pizza.Domain.Models;
 
-import com.app.pizza.Domain.Abstractions.ProductSize;
+import com.app.pizza.Domain.Enums.ProductSize;
 
 public class Product {
     private int pizzaId;

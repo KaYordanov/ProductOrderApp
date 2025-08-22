@@ -1,4 +1,4 @@
-package com.app.pizza.Domain.Abstractions;
+package com.app.pizza.Domain.Enums;
 
 public enum Position {
     KITCHEN, COUNTER_STAFF, MANAGER

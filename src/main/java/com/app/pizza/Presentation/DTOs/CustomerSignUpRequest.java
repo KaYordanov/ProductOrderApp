@@ -1,41 +1,24 @@
-package com.app.pizza.Domain.Abstractions;
+package com.app.pizza.Presentation.DTOs;
 
-import java.time.LocalDate;
+import com.app.pizza.Domain.Enums.UserType;
 
-public abstract class User {
-    private long id;
+public class CustomerSignUpRequest extends UserSignUpRequest {
     private String fullName;
     private String email;
     private String password;
     private int age;
     private String phoneNumber;
-    private LocalDate registrationDate;
+    private UserType userType;
+    private String address;
 
-    public User(String fullName, String email, String password, int age, String phoneNumber) {
+    public CustomerSignUpRequest(String fullName, String email, String password, int age, String phoneNumber, String address) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.age = age;
         this.phoneNumber = phoneNumber;
-        this.registrationDate = LocalDate.now();
-    }
-
-    public User(long id, String fullName, String email, String password, int age, String phoneNumber, LocalDate registrationDate) {
-        this.id = id;
-        this.fullName = fullName;
-        this.email = email;
-        this.password = password;
-        this.age = age;
-        this.phoneNumber = phoneNumber;
-        this.registrationDate = registrationDate;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+        this.userType = UserType.CUSTOMER;
+        this.address = address;
     }
 
     public String getFullName() {
@@ -78,11 +61,19 @@ public abstract class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public LocalDate getRegistrationDate() {
-        return registrationDate;
+    public String getAddress() {
+        return address;
     }
 
-    public void setRegistrationDate(LocalDate registrationDate) {
-        this.registrationDate = registrationDate;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 }
